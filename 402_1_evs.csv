@@ -1,0 +1,13 @@
+EVFilename,EVName,EVN
+threecol_count_and_nonresponse_trial,CANR,1
+threecol_reward_feedback,FBRew,2
+threecol_nonreward_feedback,FBNRew,3
+threecol_count_feedback,FBCount,4
+threecol_babycarrots_habitcuefractal,HabCar,5
+threecol_babycarrots_novelfractal,NovCar,6
+threecol_chips_habitcuefractal,HabChip,7
+threecol_chips_novelfractal,NovChip,8
+threecol_mandms_habitcuefractal,HabMM,9
+threecol_mandms_novelfractal,NovMM,10
+threecol_popcorn_habitcuefractal,HabPop,11
+threecol_popcorn_novelfractal,NovPop,12
