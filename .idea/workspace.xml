@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfeec4d6-847f-4f38-8533-908d4180a38b" name="Default" comment="" />
+    <list default="true" id="dfeec4d6-847f-4f38-8533-908d4180a38b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FeatAnalysisMain.py" afterPath="$PROJECT_DIR$/FeatAnalysisMain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feat_analysis_firstlevel_test.py" afterPath="$PROJECT_DIR$/feat_analysis_firstlevel_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_second_level.py" afterPath="$PROJECT_DIR$/run_second_level.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run_third_level.py" afterPath="$PROJECT_DIR$/run_third_level.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,11 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_first_level.coverage" NAME="run_first_level Coverage Results" MODIFIED="1504489776015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_third_level.coverage" NAME="run_third_level Coverage Results" MODIFIED="1501468720184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_first_level.coverage" NAME="run_first_level Coverage Results" MODIFIED="1504766810217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_third_level.coverage" NAME="run_third_level Coverage Results" MODIFIED="1504674803102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_preprocessing.coverage" NAME="run_preprocessing Coverage Results" MODIFIED="1494520770659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_bet2_structurals.coverage" NAME="run_bet2_structurals Coverage Results" MODIFIED="1498445790911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_second_level.coverage" NAME="run_second_level Coverage Results" MODIFIED="1498497418465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_second_level.coverage" NAME="run_second_level Coverage Results" MODIFIED="1504780881730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$feat_analysis_firstlevel_test.coverage" NAME="feat_analysis_firstlevel_test Coverage Results" MODIFIED="1504672972724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/lin_habit_study_fsl_feat_analysis$run_aroma.coverage" NAME="run_aroma Coverage Results" MODIFIED="1498432018910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -23,39 +31,37 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FeatAnalysisMain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FeatAnalysisMain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FeatAnalysisMain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14">
-              <caret line="296" column="8" lean-forward="false" selection-start-line="296" selection-start-column="8" selection-end-line="296" selection-end-column="8" />
+            <state relative-caret-position="-422">
+              <caret line="317" column="12" lean-forward="false" selection-start-line="317" selection-start-column="12" selection-end-line="317" selection-end-column="12" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <element signature="e#36954#37573#0" expanded="false" />
-                <element signature="e#38777#40328#0" expanded="false" />
-                <element signature="e#38870#40163#0" expanded="false" />
-                <element signature="e#38968#40163#0" expanded="false" />
+                <element signature="e#45268#45887#0" expanded="false" />
+                <element signature="e#47091#48642#0" expanded="false" />
+                <element signature="e#47184#48477#0" expanded="false" />
+                <element signature="e#47282#48477#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feat_analysis_firstlevel_test.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feat_analysis_firstlevel_test.py">
+      <file leaf-file-name="run_third_level.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_third_level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_second_level.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run_second_level.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run_second_level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="90">
+              <caret line="6" column="133" lean-forward="false" selection-start-line="6" selection-start-column="133" selection-end-line="6" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -64,18 +70,8 @@
       <file leaf-file-name="run_first_level.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_first_level.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="run_preprocessing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_preprocessing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="120">
+              <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -92,26 +88,18 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fsf_preprocessing_run_script_location</find>
-      <find>expdata/bensmith</find>
-      <find>msmserver_ben_script_location</find>
-      <find>preprocessed_subject</find>
-      <find>main structural</find>
       <find>bet</find>
       <find>run_script</find>
       <find>preprocessed_feat_folder</find>
       <find>first_level_time</find>
       <find>ev file</find>
       <find>three_col</find>
-      <find>fsf_third_level_analysis_template_location</find>
       <find>structural_image_filepath</find>
       <find>Main_structural_image</find>
       <find>structural</find>
       <find>second level</find>
-      <find>fsf_second_level_analysis_template_location</find>
       <find>first_level_templa</find>
       <find>cope</find>
-      <find>fsf_first_level_analysis_template_location</find>
       <find>contrast_data_table_filepath</find>
       <find>contrast_data_table</find>
       <find>for</find>
@@ -122,6 +110,14 @@
       <find>Preprocessing</find>
       <find>vol_count</find>
       <find>subj_run_template_vars</find>
+      <find>self.contrast.</find>
+      <find>fsf_first_level_analysis_template_location</find>
+      <find>script_output_location</find>
+      <find>fsf_third_level_analysis_template_location</find>
+      <find>fsf_second_level_analysis_template_location</find>
+      <find>fsf_second_level_path</find>
+      <find>fsf_second_level_run_script_filename</find>
+      <find>{second_level_folder}</find>
     </findStrings>
     <replaceStrings>
       <replace>fsf_preprocessing_run_script_filename</replace>
@@ -129,18 +125,21 @@
       <replace>run_contrast_data_table</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/BenSmithUtils.py" />
         <option value="$PROJECT_DIR$/run_aroma.py" />
         <option value="$PROJECT_DIR$/run_bet2_structurals.py" />
-        <option value="$PROJECT_DIR$/run_third_level.py" />
         <option value="$PROJECT_DIR$/run_preprocessing.py" />
         <option value="$PROJECT_DIR$/run_first_level.py" />
         <option value="$PROJECT_DIR$/feat_analysis_firstlevel_test.py" />
-        <option value="$PROJECT_DIR$/run_second_level.py" />
+        <option value="$PROJECT_DIR$/run_third_level.py" />
         <option value="$PROJECT_DIR$/FeatAnalysisMain.py" />
+        <option value="$PROJECT_DIR$/run_second_level.py" />
       </list>
     </option>
   </component>
@@ -153,7 +152,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="953" />
+    <option name="height" value="952" />
   </component>
   <component name="ProjectView">
     <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
@@ -171,8 +170,51 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="/">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Users">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="benjaminsmith">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Library">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Caches">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="PyCharm2016.3">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="python_stubs">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="-2125986627">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
@@ -185,7 +227,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -199,7 +240,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_first_level">
+  <component name="RunManager" selected="Python.run_second_level">
     <configuration default="false" name="run_bet2_structurals" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -214,24 +255,6 @@
       <module name="lin_habit_study_fsl_feat_analysis" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_bet2_structurals.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="run_aroma" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="lin_habit_study_fsl_feat_analysis" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_aroma.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -286,6 +309,24 @@
       <module name="lin_habit_study_fsl_feat_analysis" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_third_level.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="feat_analysis_firstlevel_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="lin_habit_study_fsl_feat_analysis" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feat_analysis_firstlevel_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -506,18 +547,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.run_bet2_structurals" />
-      <item index="1" class="java.lang.String" itemvalue="Python.run_aroma" />
-      <item index="2" class="java.lang.String" itemvalue="Python.run_first_level" />
-      <item index="3" class="java.lang.String" itemvalue="Python.run_second_level" />
-      <item index="4" class="java.lang.String" itemvalue="Python.run_third_level" />
+      <item index="1" class="java.lang.String" itemvalue="Python.run_first_level" />
+      <item index="2" class="java.lang.String" itemvalue="Python.run_second_level" />
+      <item index="3" class="java.lang.String" itemvalue="Python.run_third_level" />
+      <item index="4" class="java.lang.String" itemvalue="Python.feat_analysis_firstlevel_test" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.run_first_level" />
-        <item index="1" class="java.lang.String" itemvalue="Python.run_third_level" />
-        <item index="2" class="java.lang.String" itemvalue="Python.run_second_level" />
-        <item index="3" class="java.lang.String" itemvalue="Python.run_bet2_structurals" />
-        <item index="4" class="java.lang.String" itemvalue="Python.run_aroma" />
+        <item index="0" class="java.lang.String" itemvalue="Python.run_second_level" />
+        <item index="1" class="java.lang.String" itemvalue="Python.run_first_level" />
+        <item index="2" class="java.lang.String" itemvalue="Python.run_third_level" />
+        <item index="3" class="java.lang.String" itemvalue="Python.feat_analysis_firstlevel_test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.run_bet2_structurals" />
       </list>
     </recent_temporary>
   </component>
@@ -547,27 +588,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="953" extended-state="6" />
+    <frame x="0" y="23" width="1680" height="952" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23931624" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16239317" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938388" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32494006" sideWeight="0.31074482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2754491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18253969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38009593" sideWeight="0.48046398" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32494006" sideWeight="0.6892552" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18803419" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32814372" sideWeight="0.497558" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30538923" sideWeight="0.7960928" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43027413" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48742515" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,8 +622,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/FeatAnalysisMain.py</url>
-          <line>668</line>
-          <option name="timeStamp" value="117" />
+          <line>477</line>
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -592,7 +633,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="119" />
+      <option name="time" value="136" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -603,10 +644,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -647,10 +688,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -712,10 +753,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,10 +811,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -821,10 +862,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -842,10 +883,10 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -856,10 +897,10 @@
           <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -884,10 +925,10 @@
           <caret line="152" column="16" lean-forward="false" selection-start-line="152" selection-start-column="16" selection-end-line="152" selection-end-column="16" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -919,10 +960,10 @@
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,13 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="37" lean-forward="false" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="973" column="0" lean-forward="false" selection-start-line="973" selection-start-column="0" selection-end-line="973" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -983,20 +1017,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_third_level.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state relative-caret-position="23400">
+          <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feat_analysis_firstlevel_test.py">
+    <entry file="file://$PROJECT_DIR$/run_third_level.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="150">
+          <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,33 +1040,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_second_level.py">
+    <entry file="file://$PROJECT_DIR$/feat_analysis_firstlevel_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="506">
+          <caret line="43" column="22" lean-forward="false" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/run_first_level.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="40" lean-forward="false" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state relative-caret-position="120">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FeatAnalysisMain.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="296" column="8" lean-forward="false" selection-start-line="296" selection-start-column="8" selection-end-line="296" selection-end-column="8" />
+        <state relative-caret-position="-422">
+          <caret line="317" column="12" lean-forward="false" selection-start-line="317" selection-start-column="12" selection-end-line="317" selection-end-column="12" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <element signature="e#36954#37573#0" expanded="false" />
-            <element signature="e#38777#40328#0" expanded="false" />
-            <element signature="e#38870#40163#0" expanded="false" />
-            <element signature="e#38968#40163#0" expanded="false" />
+            <element signature="e#45268#45887#0" expanded="false" />
+            <element signature="e#47091#48642#0" expanded="false" />
+            <element signature="e#47184#48477#0" expanded="false" />
+            <element signature="e#47282#48477#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_second_level.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="133" lean-forward="false" selection-start-line="6" selection-start-column="133" selection-end-line="6" selection-end-column="133" />
+          <folding />
         </state>
       </provider>
     </entry>

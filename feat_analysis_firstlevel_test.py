@@ -4,7 +4,7 @@ import numpy as np
 import pandas
 import os
 three_col_files_dir='/Users/benjaminsmith/GDrive/lin-habit-study/Behavioral Data_all/three_col_20170730T223559'
-fsf_dir='/Users/benjaminsmith/GDrive/lin-habit-study/analysis/generated_scripts/first_level_analysis20170901T154254'
+fsf_dir='/Users/benjaminsmith/GDrive/lin-habit-study/analysis/generated_scripts/first_level_analysis20170905T152742'
 #want to check to see what the EV files we generated look like. Do they "check out"
 
 sub_evs=[]
@@ -26,13 +26,16 @@ sub_contrasts_len=pandas.DataFrame(columns=["fn"])
 for fn in glob.glob(fsf_dir + '/*contrasts.csv'):
     print os.path.basename(fn)
     fn_csv=pandas.read_csv(fn)
+    #print(fn_csv)
     sub_contrasts.append(fn_csv)
     # see if the number of contrasts is regular or short
     sub_contrasts_len=sub_contrasts_len.append(pandas.DataFrame(
         data=[{
             "fn": os.path.basename(fn).replace("_contrasts.csv",""),
             "rows": fn_csv.shape[0],
-            "cols":fn_csv.shape[1]
+            "cols":fn_csv.shape[1],
+            "not_dummy_contrasts":sum(fn_csv.ContrastName!="DUMMY CONTRAST"),
+            "dummy_contrast_cope_ids": str(fn_csv[fn_csv.ContrastName=="DUMMY CONTRAST"].Cope.tolist())
         }]))
     #also gotta record how many columns, which is important
 merged_table=pandas.merge(sub_ev_len,sub_contrasts_len,on="fn")
@@ -51,8 +54,11 @@ assert all([float(n)==float(ev_extra_cols) for n in merged_table['cols']-merged_
 #and we should only be missing contrast rows for runs where there are missing EVs
 assert all([n==max(merged_table['rows']) for n in merged_table[merged_table['len']==max_ev_num]['rows']])
 
+print(merged_table)
+
 print "if we reached here then we passed the sanity checks!"
 print "if you just check a couple of the incomplete row FSF files to make sure names correspond wit hthe design then this check should be complete."
+
 
 
 #for 329r1:

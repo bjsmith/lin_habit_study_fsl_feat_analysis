@@ -1,5 +1,6 @@
 import csv
 import numpy
+import pandas
 import glob
 import copy
 import os
@@ -38,6 +39,7 @@ class FeatAnalysisMain(object):
     fsl_aroma_script_filename=None
 
     fsf_second_level_analysis_template_location=None
+    fsf_second_level_analysis_single_run_template_location = None
     fsf_second_level_path=None
     fsf_second_level_run_script_filename=None
 
@@ -116,8 +118,10 @@ class FeatAnalysisMain(object):
         self.fsl_aroma_script_filename="aroma_script" + self.timestamp + ".sh"
         #second level
         self.fsf_second_level_analysis_template_location="lin-habit-study/analysis/second_level_template20170506.fsf"
-        self.fsf_second_level_path="lin-habit-study/data/second_level/"
+        self.fsf_second_level_analysis_single_run_template_location = "lin-habit-study/analysis/second_level_template20170506.fsf"
+        self.fsf_second_level_path="lin-habit-study/data/second_level"
         self.fsf_second_level_run_script_filename = "second_level_all" + self.timestamp + ".sh"
+        self.fsf_second_level_run_single_run_script_filename = "second_level_all_single_run_{runid}_" + self.timestamp + ".sh"
 
         self.fsf_third_level_analysis_template_location=""
         self.fsf_third_level_path = "lin-habit-study/data/third_level/"
@@ -138,7 +142,11 @@ class FeatAnalysisMain(object):
 
         return 'bet "'+ structural_img + '" "' + structural_img + suffix_to_use +'" -f 0.3 -B'
 
-    def generate_third_level_script(self, script_output_location):
+    def generate_third_level_script(self, script_output_location,first_level_script_output_location,
+                                    #first_level_location,
+                                    #first_level_timestamp,
+                                    second_level_location,
+                                    second_level_single_run_location_list):
         # load the template
         #values to enter:
         #IncludeHabitTrained
@@ -155,6 +163,7 @@ class FeatAnalysisMain(object):
         fsf_to_run.append(
             "mkdir " + self.msmserver_ben_script_location + self.fsf_third_level_path + third_level_folder + "/")
 
+
         #iterate through contrasts
         for contrast_key in range(0, len(self.contrast_data_table)):
 
@@ -162,21 +171,113 @@ class FeatAnalysisMain(object):
 
             print "contrast" + contrast_dict["Cope"]
 
+            #for each contrast
+            #for each subject*run
+            #find out if any subject*run is missing this contrast.
+
+            subj_include_list=pandas.DataFrame(columns=["subID","Run1Include","Run2Include","CopeName"])
+            contrast_csv_dict={}
+            contrast_val = contrast_dict["Cope"]
+            for subID in [s['SubID'] for s in self.subject_data_table]:#glob.glob(first_level_file_location + '/*evs.csv'):
+                data_to_use_for_subject = ''
+                run_is_not_dummy=[]
+                subj_include_list=subj_include_list.append(pandas.DataFrame(data=[{"subID": subID}]))
+                for runid in [1,2]:
+                    #look up the relevant contrast file
+                    #store it in an array for future use if we haven't already done so.
+                    if (contrast_csv_dict.has_key(subID)==False):
+                        contrast_csv_dict[subID]={}
+                    if contrast_csv_dict[subID].has_key(runid)==False:
+                        contrast_csv_dict[subID][runid]=None
+                    if contrast_csv_dict[subID][runid] is None:
+                        contrast_csv_dict[subID][runid] = pandas.read_csv(first_level_script_output_location + '/' + str(subID) + "_" + str(runid) + "_contrasts.csv")
+
+                    fn_csv=contrast_csv_dict[subID][runid]
+
+
+                    #if that file even exists for the run, which it should, do we have a Cope number that is not marked "DUMMY CONTRAST"
+                    #now check this cope
+                    cope_name=fn_csv.query('Cope=='+contrast_val).ContrastName.item()
+                    # throw an error if we don't have a number at all; they should all exist, marked "DUMMY CONTRAST"
+                    # if the subject has only one run with this contrast, then just include that run only
+                    # if the subject has no runs with this contrast, then exclude that subject from the contrast.
+                    #print (subj_include_list)
+                    subj_include_list.loc[subj_include_list.subID == subID, "CopeName"] = cope_name
+                    if cope_name=='DUMMY CONTRAST':
+                        print "subject " + str(subID) + " run " + str(runid) + " does not include contrast " + str(contrast_val)
+                        run_is_not_dummy.append(False)
+                        subj_include_list.loc[subj_include_list.subID==subID,"Run" + str(runid) + "Include"]=False
+                    else:
+                        run_is_not_dummy.append(True)
+                        subj_include_list.loc[subj_include_list.subID == subID, "Run" + str(runid) + "Include"] = True
+                #OK now we have the run data...
+
+            included_subs = subj_include_list.query('Run1Include==True or Run2Include==True')
+            excluded_subs = subj_include_list.query('Run1Include==False and Run2Include==False')
+            if(len(excluded_subs)>0):
+                print "The following subjects are excluded from contrast "+contrast_val+" altogether"
+                print(excluded_subs)
+            featdirlist=""
+            ev_input_list=""
+            group_membership_list=""
+            #loop through the subjects, by index, in included_subs
+
+            for si in range(0,len(included_subs)):
+                featdirlist=featdirlist+"\n" + "# 4D AVW data or FEAT directory ("+str(si+1)+")" + "\n"
+                featdirlist=featdirlist+"set feat_files("+str(si+1)+")" + " \""
+                # and check whether for this subject, we have both runs
+                included_sub=included_subs.iloc[si]
+                if(included_sub["Run1Include"] and included_sub["Run2Include"]):
+                    featdirlist = featdirlist + second_level_location + "sub" + included_sub["subID"]+"_second_level.gfeat/cope" + contrast_dict["Cope"] + ".feat\""
+                    #record the title of the COPE; do it here because we know in this case there is no DummyContrast
+                    contrast_title = included_sub.CopeName.replace("_"," ")#not sure if it is necessary to use the underscore char, but just in case.
+                #one of the runs is missing
+                elif (sum([included_sub["Run1Include"],included_sub["Run2Include"]])==1):
+                    if((included_sub["Run1Include"]) and not included_sub["Run2Include"]):
+                        #it's run 1
+                        missing_run=2
+                        retained_run=1
+                    elif ((not included_sub["Run1Include"]) and included_sub["Run2Include"]):
+                        #it's run 2
+                        missing_run = 1
+                        retained_run = 2
+                    print "For contrast " + contrast_val + ", subject " + included_sub['subID'] + " is missing run " + str(missing_run)
+                    #http://msm.fmri.cn/expdata/bensmith/lin-habit-study/preprocessed_subject_data/sub336_foodchoicetesting2_20170511T093930_cleaned.feat/report_log.html
+                    featdirlist = featdirlist + second_level_single_run_location_list[retained_run-1] + "sub" + included_sub[
+                        "subID"] + "_second_level.gfeat/cope" + contrast_dict["Cope"] + ".feat\""
+                else:
+                    raise Exception("should have fit one of the above categories")
+                featdirlist = featdirlist + "\n"
+                ev_input_list = ev_input_list + "\n# Higher-level EV value for EV 1 and input " + str(si+1 ) + "\n"
+                ev_input_list = ev_input_list + "\nset fmri(evg" + str(si+1) + ".1) 1"
+
+                group_membership_list = group_membership_list +"\n# Group membership for input " + str(si+1)
+                group_membership_list = group_membership_list   +"\nset fmri(groupmem." + str(si+1) + ") 1\n"
+
+
             #if str(contrast_dict["Cope"]) in ['2','3','4']:
             #    print "...skipping this contrast because not all subjects have this."
             #    continue
             # save the template values
+
             subj_template_vars = {}
             # make the dictionary more accessible
 
-            contrast_feat_label='contrast' + contrast_dict["Cope"].zfill(2) +"_" + contrast_dict["ContrastName"]
+            contrast_feat_label='contrast' + contrast_dict["Cope"].zfill(2) +"_" + str(contrast_dict["ContrastName"]).replace(" ","_")
 
             third_level_subj_instance_path=self.fsf_third_level_path + third_level_folder + "/" +contrast_feat_label
             #fsf_to_run.append(
             #    "mkdir " + self.msmserver_ben_script_location + second_level_subj_instance_path)
 
+            subj_template_vars['{volcount}'] = len(included_subs)
             subj_template_vars['{outputdir}']=third_level_subj_instance_path
             subj_template_vars['{cope_n}'] = 'cope' + contrast_dict["Cope"]
+            subj_template_vars['{featdirlist}'] = featdirlist
+            subj_template_vars['{ev_input_list}'] = ev_input_list
+            subj_template_vars['{group_membership_list}'] = group_membership_list
+            subj_template_vars['{contrast_title}'] = contrast_title
+
+
 
             cur_contrast_fsf_file_contents = fsf_file_contents
             for key, value in subj_template_vars.iteritems():
@@ -203,35 +304,33 @@ class FeatAnalysisMain(object):
 
         return self.fsf_third_level_run_script_filename
 
-    def generate_second_level_script_august2017(self, script_output_location,first_level_timestamp='20170227T141913'):
-        #this is written for the more flexible august 2017 first level scripts
-        #in these, I've specified the contrasts in a spreadsheet. We'll look to see in the records how many contrasts there are for each run and subject
-        #Problem with second-level the way I defined first level, we're looking at different tasks
-        #it turns out that to make second-level work properly I probably need to re-do first-level with "dummy contrasts"
-        #then at the third level we would have to, for each contrast, choose which subjects to include.
-        #The goal is to use all the information.
-        #Method 1: At third level, we have a separate FSF for each contrast
-        #Third level could either just ignore subjects with dummy contrasts or
-        #go direct to first level for subjects with 1 run rather than 2 for a given contrast.
-        #but what we do NOT need to do is screw around with how second-level works
-        #we *do* need to still add in those dummy contrasts to level one and try again.
+    def generate_second_level_script(self, script_output_location,first_level_timestamp='20170227T141913',runid=None,
+                                     subids=[]):
+        #only pass in runid if you want a single-level run.
+        #this is for the subjects who have some missing data
+        #we want to generate a second-level for them with just particular runs
 
-    def generate_second_level_script(self, script_output_location,first_level_timestamp='20170227T141913'):
-        # load the template
-        #values to enter:
-        #IncludeHabitTrained
-        #IncludeHabitUntrained
-        #IncludeNovelTrained
-        #IncludeNovelUntrained
-        with open(self.msmserver_ben_location + self.fsf_second_level_analysis_template_location, "r") as myfile:
-            fsf_file_contents = myfile.read()
+
 
         fsf_to_run = []
 
-        second_level_folder = "analysis" + self.timestamp
-        # create subject folder
+        if runid is None:
+            second_level_folder = "analysis" + self.timestamp
+            output_dir = "second_level_analysis" + self.timestamp + "/"
+            # load the template
+            with open(self.msmserver_ben_location + self.fsf_second_level_analysis_template_location, "r") as myfile:
+                fsf_file_contents = myfile.read()
+            run_indicator=""
+        else: #single-run
+            second_level_folder = "analysis" + "_single_run_" + str(runid) + "_" + self.timestamp
+            output_dir = "second_level_analysis_single_run_" + str(runid) + "_" + self.timestamp + "/"
+            with open(self.msmserver_ben_location + self.fsf_second_level_analysis_single_run_template_location, "r") as myfile:
+                fsf_file_contents = myfile.read()
+            run_indicator = "_single_run_" + str(runid)
+        # create subject folder that the final results go into.
+        second_level_results_path = self.msmserver_ben_script_location + self.fsf_second_level_path + "/"+ second_level_folder + "/"
         fsf_to_run.append(
-            "mkdir " + self.msmserver_ben_script_location + self.fsf_second_level_path + second_level_folder + "/")
+            "mkdir " + second_level_results_path)
 
         #iterate through subjects
         for subj_key in range(0, len(self.subject_data_table)):
@@ -239,13 +338,17 @@ class FeatAnalysisMain(object):
 
             print "sub" + subj_dict["SubID"]
 
+            if len(subids) > 0:  # we passed in a list of subids in; use it to restrict the list.
+                if not subids.__contains__(int(subj_dict["SubID"])):
+                    continue # do not process this subject because it's not in the list of subids
+
             # save the template values
             subj_template_vars = {}
             # make the dictionary more accessible
 
             subj_feat_label='sub' + subj_dict["SubID"] + "_second_level"
 
-            second_level_subj_instance_path=self.fsf_second_level_path + second_level_folder + "/" +subj_feat_label + "/"
+            second_level_subj_instance_path=self.fsf_second_level_path  +"/"+ second_level_folder + "/" +subj_feat_label + "/"
             #fsf_to_run.append(
             #    "mkdir " + self.msmserver_ben_script_location + second_level_subj_instance_path)
 
@@ -255,12 +358,23 @@ class FeatAnalysisMain(object):
             #so the run1, first-level feat folder is going to be the relevant preprocessing folder.
             #remember these indices for these folders are n+1 of the nth run because the first foodchoicetesting feat is
             #a different kind of task.
-            subj_template_vars['{run1featfolder}']=(
-                'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(2) + '_'+first_level_timestamp+'.feat'
-            )
-            subj_template_vars['{run2featfolder}'] = (
-                'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(3) + '_'+first_level_timestamp+'.feat'
-            )
+            if runid is None:
+                subj_template_vars['{run1featfolder}']=(
+                    'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(2) + '_'+first_level_timestamp+'.feat'
+                )
+                subj_template_vars['{run2featfolder}'] = (
+                    'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(3) + '_'+first_level_timestamp+'.feat'
+                )
+            elif runid==1:
+                subj_template_vars['{runnfeatfolder}']=(
+                    'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(2) + '_'+first_level_timestamp+'.feat'
+                )
+            elif runid==2:
+                subj_template_vars['{runnfeatfolder}'] = (
+                    'sub' + subj_dict["SubID"] + '_foodchoicetesting' + str(3) + '_'+first_level_timestamp+'.feat'
+                )
+            else:
+                raise Exception("Invalid runid " + runid)
             #the rule is that if one or both sessions had to be excluded, then for the subject, we don't include the contrast that only includes that session
             #in the second level analysis.
             #because it would be meaningless [in actuality, I rigged those contrasts, in those cases where the session was excluded
@@ -274,7 +388,7 @@ class FeatAnalysisMain(object):
             for key, value in subj_template_vars.iteritems():
                 cur_subj_fsf_file_contents = cur_subj_fsf_file_contents.replace(key, str(value))
 
-            output_dir = "second_level_analysis" + self.timestamp + "/"
+
             if not os.path.exists(script_output_location + output_dir):
                 os.makedirs(script_output_location + output_dir)
             #create the FSF directory.
@@ -288,11 +402,16 @@ class FeatAnalysisMain(object):
             f.write(cur_subj_fsf_file_contents)
             f.close()
 
-        f = open(script_output_location + self.fsf_second_level_run_script_filename, 'w')
+
+        if runid is None:
+            run_script_filename=self.fsf_second_level_run_script_filename
+        else:
+            run_script_filename = self.fsf_second_level_run_single_run_script_filename.replace("{runid}",str(runid))
+
+        f = open(script_output_location + run_script_filename, 'w')
         f.write('\n'.join([f for f in fsf_to_run]))
 
         return self.fsf_second_level_run_script_filename
-
 
     def generate_first_level_script(self,script_output_location,preprocessing_timestamp='20170227T141913'):
 
@@ -356,7 +475,7 @@ class FeatAnalysisMain(object):
 
             # replace template variables with new variables
             # first do subject-level vars
-            subj_template_vars['{structural_image_filepath}'] = subj_dict["Main_structural_image_brain"]
+            subj_template_vars['{structural_image_filepath}'] = str(subj_dict["Main_structural_image_brain"]).replace(".nii.gz","")
 
             vprint(subj_dict)
             #newrules
@@ -409,7 +528,8 @@ class FeatAnalysisMain(object):
 
                             del run_contrast_data_table[contrast_i][ev_name]
 
-
+                            print 'k:' + k
+                            print 'contrast_current:' + str(contrast_current)
                             remaining_ev_ids=[k for k in contrast_current if k[0:2]=="EV"]
                             remaining_ev_vals=[float(contrast_current[ev]) for ev in remaining_ev_ids]
 
@@ -457,8 +577,17 @@ class FeatAnalysisMain(object):
                             #otherwise, I think we are good...
                         contrasts_to_remove.sort(reverse=True) #have to start at the highest, otherwise the indices are messed up!
                         print(contrasts_to_remove)
+
+                        #we actually won't remove the contrasts for now; we'll wait and rather than remove them,
+                        #relabel the ones that we need to delete and make sure they have some kind of dummy EV in them.
                         for contrast_i in contrasts_to_remove:
-                            run_contrast_data_table.remove(run_contrast_data_table[contrast_i])
+                            #run_contrast_data_table.remove(run_contrast_data_table[contrast_i])
+                            run_contrast_data_table[contrast_i]['ContrastName']='DUMMY CONTRAST'
+                            #give this contrast all ONES for the first four
+                            #just a nonsensical EV.
+                            for ev_in_contrast in [("EV" + str(i + 1)) for i in range(0, 3)]:
+                                print ev_in_contrast
+                                run_contrast_data_table[contrast_i][ev_in_contrast]=1
 
                 if (len(evs_to_remove)>1):
                     print ("warning: evs_to_remove greater than 1; evs_to_remove=" + str(len(evs_to_remove)) + ". what to do?")
@@ -470,7 +599,6 @@ class FeatAnalysisMain(object):
                 print(evs_to_remove)
                 for ev_i in evs_to_remove:
                     run_ev_data_table.remove(run_ev_data_table[ev_i])
-
 
                 #whatever the situation, we should save the EV file that is specific to this run so that it can be
                 #referred to when generating round 2.
@@ -485,7 +613,8 @@ class FeatAnalysisMain(object):
                     spamwriter = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
                     spamwriter.writerow([k for k in run_contrast_data_table[0]])
                     for ev_row in run_contrast_data_table:
-                        spamwriter.writerow([ev_row[k] for k in ev_row])
+                        if[ev_row['ContrastName']!='DUMMY CONTRAST']:
+                            spamwriter.writerow([ev_row[k] for k in ev_row])
 
                 # i think that is probably the correct way to address this problem!
 
