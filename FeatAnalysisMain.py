@@ -413,7 +413,7 @@ class FeatAnalysisMain(object):
 
         return self.fsf_second_level_run_script_filename
 
-    def generate_first_level_script(self,script_output_location,preprocessing_timestamp='20170227T141913'):
+    def generate_first_level_script(self,script_output_location,preprocessing_timestamp='20170227T141913',subids=[]):
 
         #changing between runs:
         # - output directory {outputdir}
@@ -467,6 +467,11 @@ class FeatAnalysisMain(object):
         for subj_key in range(0, len(self.subject_data_table)):
             subj_dict = self.subject_data_table[subj_key]
 
+            # some subjects have been specified, so only run those
+            if len(subids) > 0:  # we passed in a list of subids in; use it to restrict the list.
+                if not subids.__contains__(int(subj_dict["SubID"])):
+                    continue # do not process this subject because it's not in the list of subids
+
             print "sub" + subj_dict["SubID"]
 
             # save the template values
@@ -499,6 +504,8 @@ class FeatAnalysisMain(object):
                     self.msmserver_ben_location + self.fsf_preprocessing_path
                     +sub_run_preprocessed_data_folder+"/filtered_func_data.nii.gz")
                 vol_count = check_output(["fslnvols", sub_run_preprocessed_data_nii]).replace("\n", "")
+                if vol_count==0:
+                    print "warning: volcount is zero for subject " + subj_dict["SubID"] + ", run "+str(run)
                 subj_run_template_vars['{volcount}'] = vol_count
 
                 # if there is no data for the EV then we cannot actually create an EV for this subject*run.
@@ -528,8 +535,8 @@ class FeatAnalysisMain(object):
 
                             del run_contrast_data_table[contrast_i][ev_name]
 
-                            print 'k:' + k
-                            print 'contrast_current:' + str(contrast_current)
+                            #print 'k:' + k
+                            #print 'contrast_current:' + str(contrast_current)
                             remaining_ev_ids=[k for k in contrast_current if k[0:2]=="EV"]
                             remaining_ev_vals=[float(contrast_current[ev]) for ev in remaining_ev_ids]
 
@@ -658,9 +665,11 @@ class FeatAnalysisMain(object):
                         contrast_section1_level2_n =contrast_section1_level2_n.replace("{element_n}",str(element_n_level2+1))
 
                         #now we need the contrast details from the table.
-                        #only for even elements.
+                        #only for ODD elements.
+                        #made a mistake here; prior to 8 SEP 2017 this was set to "only EVEN" elements.
+                        #That is wrong - it's using the temporal derivative, which was neever intended to be itself measured!
                         contrast_ev_match=0
-                        if ((element_n_level2 +1) % 2)==1:
+                        if ((element_n_level2 +1) % 2)==0:
                             #just enter zero.
                             contrast_ev_match=0
                         else:
@@ -669,7 +678,8 @@ class FeatAnalysisMain(object):
                             #print "."
                             #if(subj_dict["SubID"]=='407' and contrast_n==29 and element_n_level2==21):
                             #    print element_n_level2
-                            ev_original_id = run_ev_data_table[(element_n_level2+1)/2-1]['EVN']
+                            #ev_original_id = run_ev_data_table[(element_n_level2+1)/2-1]['EVN']
+                            ev_original_id = run_ev_data_table[(element_n_level2 + 1) / 2]['EVN']
                             #print str((element_n_level2+1)/2-1) + ", " + ev_original_id
                             #print [x for x in run_ev_data_table[(element_n_level2+1)/2-1]]
                             #print [x for x in run_contrast_data_table[contrast_n]]
